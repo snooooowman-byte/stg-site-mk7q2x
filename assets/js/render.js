@@ -82,6 +82,10 @@
     var mount = document.getElementById('site-header');
     if (!mount) return;
     clear(mount);
+    // マウント先にクラスを付与。CSSの .site-header(sticky・z-index:100・背景)はこのクラスに
+    // 定義されており、未付与だと開いたメニューが後続のヒーロー(position:relative)の下に隠れて
+    // 「タップしても何も起きない」ように見えるバグになる(2026-08-25 iPhone実機で発覚・原因特定済み)。
+    mount.classList.add('site-header');
 
     var inner = TS.util.el('div', { class: 'site-header__inner' });
 
@@ -124,6 +128,8 @@
     var mount = document.getElementById('site-footer');
     if (!mount) return;
     clear(mount);
+    mount.classList.add('site-footer'); // ヘッダー同様、CSS定義(.site-footer)への結線
+
 
     var nav = TS.util.el('nav', { class: 'footer-nav' });
     FOOTER_LINKS.forEach(function (item) {
