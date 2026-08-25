@@ -88,9 +88,12 @@
     var logo = TS.util.el('a', { class: 'site-logo' }, ['THAI SPOT TOKYO']);
     setInternalHref(logo, 'index.html');
 
-    var toggle = TS.util.el('input', { class: 'nav-toggle', id: 'nav-toggle', type: 'checkbox', 'aria-hidden': 'true' });
-
-    var hamburger = TS.util.el('label', { class: 'hamburger', for: 'nav-toggle', 'aria-label': 'メニューを開く' }, [
+    // ハンバーガーはbutton+JSトグル方式。当初のlabel+隠しチェックボックス方式は
+    // iOS Safariでタップが反応しない実機報告があったため置き換え(2026-08-25・iPhone 17 Pro Max)。
+    var hamburger = TS.util.el('button', {
+      class: 'hamburger', type: 'button',
+      'aria-label': 'メニューを開く', 'aria-expanded': 'false', 'aria-controls': 'site-nav'
+    }, [
       TS.util.el('span', {}, []),
       TS.util.el('span', {}, []),
       TS.util.el('span', {}, [])
@@ -105,8 +108,13 @@
       nav.appendChild(a);
     });
 
+    hamburger.onclick = function () {
+      var open = nav.classList.toggle('is-open');
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      hamburger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    };
+
     inner.appendChild(logo);
-    inner.appendChild(toggle);
     inner.appendChild(hamburger);
     inner.appendChild(nav);
     mount.appendChild(inner);

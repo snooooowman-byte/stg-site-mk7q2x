@@ -215,15 +215,12 @@ main {
 }
 
 /* チェックボックスハック本体は非表示 */
-.nav-toggle {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-  width: 1px;
-  height: 1px;
-}
-
 .hamburger {
+  /* button要素化(iOS label タップ不発対応・2026-08-25)に伴いUA既定スタイルを打ち消す */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -261,7 +258,7 @@ main {
   font-weight: 700;
 }
 
-.nav-toggle:checked ~ .site-nav {
+.site-nav.is-open {
   display: flex;
 }
 
@@ -301,6 +298,8 @@ main {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center; /* モバイルは中央寄せ(2026-08-25 課長iPhone実機フィードバック) */
+  text-align: center;
   gap: var(--space-2) var(--space-4);
   font-size: 13px;
   color: var(--color-muted-2);
@@ -352,7 +351,7 @@ main {
 }
 
 @media (min-width: 768px) {
-  .footer-nav { font-size: 13.5px; }
+  .footer-nav { font-size: 13.5px; justify-content: flex-start; text-align: left; }
 }
 
 /* ==========================================================================
