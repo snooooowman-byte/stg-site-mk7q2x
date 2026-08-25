@@ -16,7 +16,7 @@ TS.config = {
 
   // サイト埋め込みトークン（GAS側 CONFIG.SITE_TOKEN と一致させる。要件7章・軽量フィルタ）
   // ページ読み込み単位で再利用可。使い捨てにしない（計測定義と整合・要件7章）。
-  SITE_TOKEN: '',
+  SITE_TOKEN: 'Sd4NmhpLJkd0nsGH3NxxIp9QHyytQatm', // 2026-08-25発行。GAS側CONFIG.SITE_TOKENと一致させる(要件7章・ソースから読める前提の軽量フィルタ)
 
   // sessionStorageキャッシュの有効分数（要件2-3・通常反映は最大10分）
   CACHE_MINUTES: 10,
