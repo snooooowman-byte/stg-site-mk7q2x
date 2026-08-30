@@ -12,7 +12,7 @@ TS.config = {
 
   // GAS WebアプリURL（未設定時 log.js は送信をスキップ・check.html は「未設定」表示。設計書4章）
   // 統合工程で発注者デプロイ後のURLを差し込む（要件7章・11工程Day7）。
-  GAS_URL: '',
+  GAS_URL: 'https://script.google.com/macros/s/AKfycbzf3UpkywE9Z5LpDSNvhoctnXcnZFCe6iLL0JN3l3TcW2-LElTRz7fZVZ2sZYOnHd27/exec',
 
   // サイト埋め込みトークン（GAS側 CONFIG.SITE_TOKEN と一致させる。要件7章・軽量フィルタ）
   // ページ読み込み単位で再利用可。使い捨てにしない（計測定義と整合・要件7章）。
