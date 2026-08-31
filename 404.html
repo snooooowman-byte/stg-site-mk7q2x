@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 404はGitHub Pagesにより任意の深さのURLで表示されるため、相対参照が /aaa/bbb 配下に解決されて
+     「ボタンを押してもまた404」になる不具合があった(2026-08-31検収指摘A-5)。baseでルート基準に固定する。 -->
+<base href="/">
 <meta name="robots" content="noindex, nofollow"> <!-- 検収後の移管時にこの行を削除 -->
 <title>ページが見つかりません | THAI SPOT TOKYO</title>
 <meta name="description" content="お探しのページが見つかりませんでした。THAI SPOT TOKYOのホームまたはお店を探すページをご利用ください。">
