@@ -36,5 +36,5 @@ TS.config = {
   // body に test:true を含め、GAS側がSearch_Counts/Search_FreeWord/Contact_Logの
   // テストデータを本番集計と区別できる形（月キー'TEST'・行末「テスト」列）で記録する。
   // 検収引き渡し時にfalseへ変更すること（検収チェックリスト項目）。
-  STAGING_MODE: true,
+  STAGING_MODE: false, // 2026-08-31 検収完了→本番運用へ切替（ログのtest印が外れ本番集計が始まる）
 };
